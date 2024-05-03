@@ -54,6 +54,7 @@ public class three {
             System.out.println("J"+currJob.id+"  "+currJob.slot+"  "+currJob.profit);
         }
         Collections.sort(jobs, (a, b) -> b.profit-a.profit);
+        // For Scheduling
         System.out.print("\nJobs Scheduling Order : ");
         for (int i = 0; i < jobs.size(); i++) {
             int maxId = -1;
@@ -67,6 +68,14 @@ public class three {
             }
             if(maxId != -1) {
                 System.out.print("J"+maxId+"  ");
+            }
+        }
+        // For Sequencing
+        int time = 0;
+        for (int i = 0; i < jobs.size(); i++) {
+            if(time < jobs.get(i).deadline) {
+                System.out.print("J"+jobs.get(i).id+"  ");
+                time++;
             }
         }
     }
